@@ -20,8 +20,8 @@ export default function HamburgerMenu({ open, onClose }) {
           onClick={onClose}
           aria-label="Cerrar menú"
         >×</button>
-        <MenuLink to="/" label="Inicio" iconClass="fi fi-rr-home" onClick={onClose} />
-        <MenuLink to="/mapa" label="Mapa" iconClass="fi fi-rr-marker" onClick={onClose} />
+        <MenuLink to="/dashboard" label="Home" iconClass="fi fi-rr-home" onClick={onClose} />
+        <MenuLink to="/map" label="Mapa" iconClass="fi fi-rr-map-marker" onClick={onClose} />
         <MenuLink to="/retos" label="Retos" iconClass="fi fi-rr-flame" onClick={onClose} />
         <MenuLink to="/marketplace" label="Marketplace" iconClass="fi fi-rr-shopping-cart" onClick={onClose} />
       </nav>

@@ -1,4 +1,4 @@
-export default function MobileHeader({
+export default function UserHeader({
   onMenu,
   onMoon,
   onBell,
