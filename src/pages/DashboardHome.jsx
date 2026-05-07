@@ -1,6 +1,6 @@
 import { useState } from "react";
 import HamburgerMenu from "../components/HamburgerMenu";
-import  UserHeader from "../components/UserHeader";
+import UserHeader from "../components/UserHeader";
 
 export default function DashboardHome() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -8,6 +8,8 @@ export default function DashboardHome() {
   return (
     <div className="min-h-screen bg-white flex flex-col items-center pt-3 px-0">
       <UserHeader onMenu={() => setMenuOpen(true)} />
+
+      {/* Bloque saludo */}
       <div className="w-full max-w-md mx-auto pl-4 pr-4 mt-2 mb-3">
         <div>
           <div
@@ -24,8 +26,11 @@ export default function DashboardHome() {
           </span>
         </div>
       </div>
+
       <HamburgerMenu open={menuOpen} onClose={() => setMenuOpen(false)} />
+
       <main className="w-full max-w-md mx-auto pt-0 pb-6 px-4">
+        {/* Card: Puntos */}
         <div className="bg-white rounded-2xl shadow-sm border border-[#E0E5EB] px-5 py-4 flex items-center justify-between mb-4">
           <div>
             <span className="text-[#12B76A] font-bold text-xl" style={{ fontSize: 20 }}>
@@ -42,26 +47,46 @@ export default function DashboardHome() {
             Nivel 1
           </span>
         </div>
+
+        {/* Accesos rápidos */}
         <div className="grid grid-cols-2 gap-4 mb-4">
-          <button className="flex flex-col bg-white rounded-2xl border border-[#E0E5EB] shadow-sm items-center py-4 px-0 min-h-[80px] justify-center active:bg-gray-50 transition" style={{ minWidth: 0 }}>
-            <i className="fi fi-rr-marker text-lg mb-1"></i>
-            <span className="text-[15px] font-semibold mb-0" style={{ fontSize: 15 }}>
-              Contenedores
-            </span>
-            <span className="text-xs text-[#7D8797]" style={{ fontSize: 12 }}>
-              cercanos
-            </span>
+          {/* Contenedores */}
+          <button className="flex flex-col bg-white rounded-2xl border border-[#E0E5EB] shadow-sm items-center py-5 px-2 min-h-[92px] justify-center group active:bg-gray-50 transition">
+            <i className="fi fi-rr-map text-2xl mb-2 text-[#199A61]"></i>
+            <span className="text-[15px] font-semibold mb-0">Contenedores</span>
+            <span className="text-xs text-[#7D8797]">cercanos</span>
           </button>
-          <button className="flex flex-col bg-white rounded-2xl border border-[#E0E5EB] shadow-sm items-center py-4 px-0 min-h-[80px] justify-center active:bg-gray-50 transition" style={{ minWidth: 0 }}>
-            <i className="fi fi-rr-scan text-lg mb-1"></i>
-            <span className="text-[15px] font-semibold mb-0" style={{ fontSize: 15 }}>
-              Escanear QR
+          {/* Escanear QR */}
+          <button className="flex flex-col bg-white rounded-2xl border border-[#E0E5EB] shadow-sm items-center py-5 px-2 min-h-[92px] justify-center group active:bg-gray-50 transition">
+            <span className="mb-2 flex items-center justify-center" style={{ width: 28, height: 28 }}>
+              {/* ICONO QR SVG */}
+              <svg
+                width="28"
+                height="28"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect x="2" y="2" width="6" height="6" rx="1.5" stroke="#845EF7" strokeWidth="2" />
+                <rect x="16" y="2" width="6" height="6" rx="1.5" stroke="#845EF7" strokeWidth="2" />
+                <rect x="2" y="16" width="6" height="6" rx="1.5" stroke="#845EF7" strokeWidth="2" />
+                <rect x="4" y="4" width="2" height="2" rx="1" fill="#845EF7" />
+                <rect x="18" y="4" width="2" height="2" rx="1" fill="#845EF7" />
+                <rect x="4" y="18" width="2" height="2" rx="1" fill="#845EF7" />
+                <rect x="10" y="6" width="2" height="2" rx="0.6" fill="#845EF7" />
+                <rect x="12" y="10" width="2" height="2" rx="0.6" fill="#845EF7" />
+                <rect x="8" y="12" width="2" height="2" rx="0.6" fill="#845EF7" />
+                <rect x="14" y="14" width="2" height="2" rx="0.6" fill="#845EF7" />
+                <rect x="12" y="16" width="2" height="2" rx="0.6" fill="#845EF7" />
+              </svg>
             </span>
-            <span className="text-xs text-[#7D8797]" style={{ fontSize: 12 }}>
-              Valida acción
-            </span>
+            <span className="text-[15px] font-semibold mb-0">Escanear QR</span>
+            <span className="text-xs text-[#7D8797]">Valida acción</span>
           </button>
         </div>
+
+        {/* Tip del día */}
         <div className="bg-white rounded-2xl shadow-sm border border-[#E0E5EB] px-5 py-4 mb-4 flex gap-3 items-start">
           <i className="fi fi-rr-lightbulb text-lg text-[#FFD300] mt-1 shrink-0"></i>
           <div>
@@ -74,6 +99,8 @@ export default function DashboardHome() {
             </p>
           </div>
         </div>
+
+        {/* Reto del día */}
         <div className="bg-white rounded-2xl shadow-sm border border-[#E0E5EB] p-5 mb-4">
           <div className="flex items-center justify-between mb-2">
             <span className="font-bold text-[17px] text-[#141B21]" style={{ fontSize: 17 }}>
@@ -102,13 +129,15 @@ export default function DashboardHome() {
               <i className="fi fi-rr-clock-three text-xs"></i> 1 día restante
             </span>
             <span className="flex items-center gap-1 text-lg font-bold text-[#FFC400]" style={{ fontSize: 18 }}>
-              <i className="fi fi-rr-shopping-bag"></i> 50
+              <i class="fi fi-tr-medal"></i> 50
             </span>
           </div>
           <button className="w-full py-3 mt-1 rounded-lg bg-green-600 text-white font-semibold text-base transition hover:bg-green-700 active:scale-95" style={{ minHeight: 44, fontSize: 16 }}>
             Continuar Reto
           </button>
         </div>
+
+        {/* Actividad reciente */}
         <div className="pb-2">
           <span className="pl-1 font-semibold text-sm text-[#222]" style={{ fontSize: 15 }}>
             Actividad reciente
