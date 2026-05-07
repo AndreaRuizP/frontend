@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 export default function HamburgerMenu({ open, onClose }) {
   return (
     <div className={`fixed inset-0 z-40 ${open ? "" : "pointer-events-none"}`}>
+      {/* Fondo */}
       <div
         className={`absolute inset-0 bg-black/30 transition-opacity duration-300 ${open ? "opacity-100" : "opacity-0"}`}
         onClick={onClose}
@@ -19,25 +20,27 @@ export default function HamburgerMenu({ open, onClose }) {
           className="absolute top-2 right-3 text-2xl"
           onClick={onClose}
           aria-label="Cerrar menú"
-        >
-          ×
-        </button>
-        <MenuLink to="/inicio" label="Inicio" onClick={onClose} />
-        <MenuLink to="/mapa" label="Mapa" onClick={onClose} />
-        <MenuLink to="/retos" label="Retos" onClick={onClose} />
-        <MenuLink to="/marketplace" label="Marketplace" onClick={onClose} />
+        >×</button>
+
+        {/* Links con iconos Flaticon */}
+        <MenuLink to="/" label="Inicio" iconClass="fi fi-rr-home" onClick={onClose} />
+        <MenuLink to="/mapa" label="Mapa" iconClass="fi fi-rr-marker" onClick={onClose} />
+        <MenuLink to="/retos" label="Retos" iconClass="fi fi-rr-flame" onClick={onClose} />
+        <MenuLink to="/marketplace" label="Marketplace" iconClass="fi fi-rr-shopping-cart" onClick={onClose} />
       </nav>
     </div>
   );
 }
 
-function MenuLink({ to, label, onClick }) {
+function MenuLink({ to, label, iconClass, onClick }) {
   return (
     <Link
       to={to}
       onClick={onClick}
-      className="font-medium text-lg text-[#141B21] transition hover:underline"
+      className="flex items-center gap-3 font-medium text-lg text-[#141B21] transition hover:underline"
+      style={{ minHeight: 44 }}
     >
+      <i className={iconClass + " text-xl"}></i>
       {label}
     </Link>
   );

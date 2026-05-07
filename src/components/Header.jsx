@@ -7,7 +7,7 @@ export default function Header() {
         <img src={logo} alt="Logo" className="h-8" />
       </button>
       <button>
-        <i class="fi fi-rr-sun text-xl"></i>
+        <i className="fi fi-rr-moon text-xl"></i>
       </button>
     </header>
   );
