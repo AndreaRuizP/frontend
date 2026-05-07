@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 export default function HamburgerMenu({ open, onClose }) {
   return (
     <div className={`fixed inset-0 z-40 ${open ? "" : "pointer-events-none"}`}>
-      {/* Fondo */}
       <div
         className={`absolute inset-0 bg-black/30 transition-opacity duration-300 ${open ? "opacity-100" : "opacity-0"}`}
         onClick={onClose}
@@ -21,8 +20,6 @@ export default function HamburgerMenu({ open, onClose }) {
           onClick={onClose}
           aria-label="Cerrar menú"
         >×</button>
-
-        {/* Links con iconos Flaticon */}
         <MenuLink to="/" label="Inicio" iconClass="fi fi-rr-home" onClick={onClose} />
         <MenuLink to="/mapa" label="Mapa" iconClass="fi fi-rr-marker" onClick={onClose} />
         <MenuLink to="/retos" label="Retos" iconClass="fi fi-rr-flame" onClick={onClose} />

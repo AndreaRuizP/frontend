@@ -14,7 +14,7 @@ export default function Register() {
   }
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-[#f3fcf7] px-4">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-[#ffffff] px-4">
       <form
         className="bg-white max-w-sm w-full rounded-xl p-8 shadow border border-[#E0E5EB]"
         autoComplete="off"
