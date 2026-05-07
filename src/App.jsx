@@ -6,6 +6,7 @@ import Login from "./auth/Login";
 import Registre from "./auth/Register";
 import Footer from "./components/Footer";
 import Map from "./pages/Map";
+import Challenge from "./pages/Challenge";
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Route path="/register" element={<Registre />} />
         <Route path="/dashboard" element={<DashboardHome />} />
         <Route path="/map" element={<Map />} />
+        <Route path="/challenge" element={<Challenge />}></Route>
       </Routes>
     </>
   );
