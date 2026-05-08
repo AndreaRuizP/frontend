@@ -7,6 +7,7 @@ import Registre from "./auth/Register";
 import Footer from "./components/Footer";
 import Map from "./pages/Map";
 import Challenge from "./pages/Challenge";
+import Marketplace from "./pages/Marketplace";
 
 
 function App() {
@@ -21,7 +22,8 @@ function App() {
         <Route path="/register" element={<Registre />} />
         <Route path="/dashboard" element={<DashboardHome />} />
         <Route path="/map" element={<Map />} />
-        <Route path="/challenge" element={<Challenge />}></Route>
+        <Route path="/retos" element={<Challenge />}></Route>
+        <Route path="/marketplace" element={<Marketplace />}></Route>
       </Routes>
     </>
   );
