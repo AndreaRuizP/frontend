@@ -8,6 +8,7 @@ import Footer from "./components/Footer";
 import Map from "./pages/Map";
 import Challenge from "./pages/Challenge";
 import Marketplace from "./pages/Marketplace";
+import DarkMode from "./components/DarkMode";
 
 
 function App() {
