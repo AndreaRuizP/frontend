@@ -54,7 +54,8 @@ export default function Challenge() {
       <UserHeader onMenu={() => setMenuOpen(true)} />
       <HamburgerMenu open={menuOpen} onClose={() => setMenuOpen(false)} />
 
-      <div className={menuOpen ? "hidden" : "w-full max-w-md mx-auto px-2"}>
+      {/* Cambia px-2 por px-4 aquí para mayor espacio a los lados */}
+      <div className={menuOpen ? "hidden" : "w-full max-w-md mx-auto px-4"}>
 
         <div className="bg-white rounded-2xl border border-[#E0E5EB] px-5 py-3 mb-4">
           <span className="font-semibold text-[#141B21]" style={{ fontSize: 15 }}>
@@ -85,7 +86,8 @@ export default function Challenge() {
             return (
               <div
                 key={i}
-                className="bg-white rounded-2xl shadow-sm border border-[#E0E5EB] p-5"
+                // Cambié px-5 a px-3 para mejor ajuste en mobile
+                className="bg-white rounded-2xl shadow-sm border border-[#E0E5EB] p-3"
               >
                 <div className="flex items-center justify-between mb-2">
                   <span className="font-bold text-[#141B21]" style={{ fontSize: 17 }}>

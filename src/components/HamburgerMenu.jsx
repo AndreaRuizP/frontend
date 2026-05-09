@@ -34,7 +34,7 @@ function MenuLink({ to, label, iconClass, onClick }) {
     <Link
       to={to}
       onClick={onClick}
-      className="flex items-center gap-3 font-medium text-lg text-[#141B21] transition hover:underline"
+      className="flex items-center gap-3 font-medium text-lg text-[#141B21] transition hover:text-green-600"
       style={{ minHeight: 44 }}
     >
       <i className={iconClass + " text-xl"}></i>

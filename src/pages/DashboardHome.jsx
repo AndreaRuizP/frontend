@@ -8,23 +8,6 @@ export default function DashboardHome() {
   return (
     <div className="min-h-screen bg-white flex flex-col items-center pt-3 px-0">
       <UserHeader onMenu={() => setMenuOpen(true)} />
-      <div className="w-full max-w-md mx-auto pl-4 pr-4 mt-2 mb-3">
-        <div>
-          <div
-            className="text-base font-semibold text-[#222] leading-snug"
-            style={{ fontSize: 16, lineHeight: 1.5 }}
-          >
-            Bienvenido,
-          </div>
-          <span
-            className="block text-2xl font-bold leading-snug mt-0"
-            style={{ fontSize: 28, lineHeight: 1.25 }}
-          >
-            Nombre_Usuario
-          </span>
-        </div>
-      </div>
-
       <HamburgerMenu open={menuOpen} onClose={() => setMenuOpen(false)} />
 
       <main className="w-full max-w-md mx-auto pt-0 pb-6 px-4">
@@ -44,6 +27,7 @@ export default function DashboardHome() {
             Nivel 1
           </span>
         </div>
+
         <div className="grid grid-cols-2 gap-4 mb-4">
           <button className="flex flex-col bg-white rounded-2xl border border-[#E0E5EB] shadow-sm items-center py-5 px-2 min-h-[92px] justify-center group active:bg-gray-50 transition">
             <i className="fi fi-rr-map text-2xl mb-2 text-[#199A61]"></i>
@@ -58,19 +42,19 @@ export default function DashboardHome() {
             <span className="text-xs text-[#7D8797]">Valida acción</span>
           </button>
         </div>
-        <div className="bg-white rounded-2xl shadow-sm border border-[#E0E5EB] px-5 py-4 mb-4 flex gap-3 items-start">
-          <i className="fi fi-rr-lightbulb text-lg text-[#FFD300] mt-1 shrink-0"></i>
-          <div>
-            <span className="inline-block font-semibold text-sm bg-[#E4F2FF] text-[#256E3A] px-2 py-[2px] mb-1 rounded-full" style={{ fontSize: 13 }}>
-              <i className="fi fi-rr-lightbulb text-lg text-[#FFD300]"></i>
+        <div className="bg-white rounded-2xl shadow-sm border border-[#E0E5EB] px-5 py-4 mb-4">
+          <div className="flex items-center gap-2 mb-1">
+            <i className="bi bi-lightbulb text-xl text-[#FFD300]"></i>
+            <span className="inline-block font-semibold text-sm bg-[#dbfce7] text-[#008236] px-2 py-[2px] rounded-full" style={{ fontSize: 13 }}>
               Tip del día
             </span>
-            <p className="text-sm text-[#7D8797] leading-snug mt-1" style={{ fontSize: 16, lineHeight: 1.5 }}>
-              Separa el cartón del plástico antes de depositarlo.<br />
-              Mejora la tasa de reciclaje hasta un 30%.
-            </p>
           </div>
+          <p className="text-sm text-[#7D8797] leading-snug mt-1" style={{ fontSize: 16, lineHeight: 1.5 }}>
+            Separa el cartón del plástico antes de depositarlo.<br />
+            Mejora la tasa de reciclaje hasta un 30%.
+          </p>
         </div>
+
         <div className="bg-white rounded-2xl shadow-sm border border-[#E0E5EB] p-5 mb-4">
           <div className="flex items-center justify-between mb-2">
             <span className="font-bold text-[17px] text-[#141B21]" style={{ fontSize: 17 }}>
@@ -107,6 +91,7 @@ export default function DashboardHome() {
             Continuar Reto
           </button>
         </div>
+
         <div className="pb-2">
           <span className="pl-1 font-semibold text-sm text-[#222]" style={{ fontSize: 15 }}>
             Actividad reciente
