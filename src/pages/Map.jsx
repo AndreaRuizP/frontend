@@ -85,7 +85,7 @@ export default function Map() {
   }
 
   return (
-    <div className="min-h-screen bg-[#F8FAFC] flex flex-col items-center pt-3 px-0">
+    <div className="min-h-screen bg-[#ffffff] flex flex-col items-center pt-3 px-0">
       <UserHeader onMenu={() => setMenuOpen(true)} />
       <HamburgerMenu open={menuOpen} onClose={() => setMenuOpen(false)} />
 
