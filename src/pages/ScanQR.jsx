@@ -40,16 +40,26 @@ export default function ScanQR() {
                         </>
                     ) : (
                         <div className="flex flex-col items-center w-full">
-                            <div className="w-full rounded-lg overflow-hidden mb-2" style={{ aspectRatio: '1/1', maxHeight: 280 }}>
-                                <QrReader
-                                    constraints={{ facingMode: "environment" }}
-                                    onResult={(result, error) => {
-                                        if (!!result) {
-                                            setQrResult(result?.text);
+                            <div
+                                className="w-full rounded-xl overflow-hidden border border-gray-200 mb-4"
+                                style={{
+                                    aspectRatio: "1/1",
+                                    maxHeight: 320,
+                                }}
+                            >
+                                <Scanner
+                                    constraints={{
+                                        facingMode: "environment",
+                                    }}
+                                    onScan={(result) => {
+                                        if (result && result.length > 0) {
+                                            setQrResult(result[0].rawValue);
                                             setShowScanner(false);
                                         }
                                     }}
-                                    videoStyle={{ width: '100%', height: '100%' }}
+                                    onError={(error) => {
+                                        console.log(error);
+                                    }}
                                 />
                             </div>
                             <button
