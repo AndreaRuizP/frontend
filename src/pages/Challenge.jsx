@@ -86,8 +86,7 @@ export default function Challenge() {
             return (
               <div
                 key={i}
-                // Cambié px-5 a px-3 para mejor ajuste en mobile
-                className="bg-white rounded-2xl shadow-sm border border-[#E0E5EB] p-5"
+                className="bg-white rounded-2xl shadow-sm border border-[#E0E5EB] p-3"
               >
                 <div className="flex items-center justify-between mb-2">
                   <span className="font-bold text-[#141B21]" style={{ fontSize: 17 }}>
