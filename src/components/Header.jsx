@@ -1,5 +1,5 @@
 import logo from "../assets/logo.png";
-import DarkMode from "./DarkMode";
+import DarkMode from "../components/DarkMode";
 
 export default function Header() {
   return (
