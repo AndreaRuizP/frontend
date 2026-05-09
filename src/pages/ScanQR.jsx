@@ -7,13 +7,12 @@ import UserHeader from "../components/UserHeader";
 export default function ScanQR() {
     const [showScanner, setShowScanner] = useState(false);
     const [qrResult, setQrResult] = useState(null);
-    conts [menuOpen, setMenuOpen] = useState(false);
+    const [menuOpen, setMenuOpen] = useState(false);
 
     return (
-        <div className="min-h-screen flex flex-col items-center justify-center bg-[#F8FAFC] p-4">
+        <div className="min-h-screen bg-white flex flex-col items-center pt-3 px-0">
             <UserHeader onMenu={() => setMenuOpen(true)} />
             <HamburgerMenu open={menuOpen} onClose={() => setMenuOpen(false)} />
-            {/* Título y descripción */}
             <h2 className="text-2xl font-bold text-center mb-2">Recolecta y Recicla</h2>
             <p className="text-center text-[#444] text-base mb-6 max-w-md">
                 Escanea el código QR de un contenedor y sube una foto de tu reciclaje para ganar CleanPoints.
