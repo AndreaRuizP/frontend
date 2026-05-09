@@ -2,12 +2,12 @@ import logo from "../assets/logo.png";
 
 export default function Header() {
   return (
-    <header className="w-full flex items-center justify-between px-4 py-2 bg-white shadow-[0_1px_0_#EDF7F2]">
-      <button>
+    <header className="w-full flex items-center justify-between px-6 py-4 bg-white shadow-[0_1px_0_#EDF7F2]">
+      <button className="ml-3">
         <img src={logo} alt="Logo" className="h-8" />
       </button>
-      <button>
-        <i className="fi fi-rr-moon text-xl"></i>
+      <button className="mr-3">
+        <i className="bi bi-sun text-xl"></i>
       </button>
     </header>
   );

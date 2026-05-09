@@ -14,13 +14,13 @@ export default function Footer() {
         <span className="font-semibold text-base">Síguenos</span>
         <div className="flex gap-4 mt-2">
           <a href="#" aria-label="Facebook" className="transition hover:opacity-70">
-            <i className="fi fi-brands-facebook text-xl"></i>
+            <i className="bi bi-facebook text-xl"></i>
           </a>
           <a href="#" aria-label="Twitter" className="transition hover:opacity-70">
-            <i className="fi fi-brands-twitter text-xl"></i>
+            <i className="bi bi-twitter text-xl"></i>
           </a>
           <a href="#" aria-label="Instagram" className="transition hover:opacity-70">
-            <i className="fi fi-brands-instagram text-xl"></i>
+            <i className="bi bi-instagram text-xl"></i>
           </a>
         </div>
       </div>

@@ -1,13 +1,17 @@
+import React, { useState } from "react";
+import DarkMode from "./DarkMode"; 
+
 export default function UserHeader({
   onMenu,
-  onMoon,
   onBell,
   onUser,
-  showMoon = true,
+  showDarkMode = true,
   showBell = true,
   showUser = true,
   className = "",
 }) {
+  const [darkMode, setDarkMode] = useState(false);
+
   return (
     <header
       className={`w-full max-w-md mx-auto flex items-center justify-between pl-3 pr-4 mb-0 ${className}`}
@@ -22,21 +26,14 @@ export default function UserHeader({
         <i className="fi fi-rr-menu-burger text-xl"></i>
       </button>
       <div className="flex items-center gap-3">
-        {showMoon && (
-          <button
-            aria-label="Modo oscuro"
-            onClick={onMoon}
-            className="bg-transparent border-0 p-0 m-0"
-            style={{ minWidth: 44, minHeight: 44 }}
-          >
-            <i className="fi fi-rr-moon text-xl"></i>
-          </button>
+        {showDarkMode && (
+          <DarkMode checked={darkMode} onChange={setDarkMode} />
         )}
         {showBell && (
           <button
             aria-label="Notificaciones"
             onClick={onBell}
-            className="bg-transparent border-0 p-0 m-0"
+            className="flex items-center justify-center bg-transparent border-0 p-0 m-0"
             style={{ minWidth: 44, minHeight: 44 }}
           >
             <i className="fi fi-rr-bell text-xl"></i>
@@ -46,7 +43,7 @@ export default function UserHeader({
           <button
             aria-label="Cuenta"
             onClick={onUser}
-            className="bg-transparent border-0 p-0 m-0"
+            className="flex items-center justify-center bg-transparent border-0 p-0 m-0"
             style={{ minWidth: 44, minHeight: 44 }}
           >
             <i className="fi fi-rr-user text-xl"></i>
