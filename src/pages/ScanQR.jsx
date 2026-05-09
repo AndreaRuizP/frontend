@@ -14,7 +14,7 @@ export default function ScanQR() {
             <UserHeader onMenu={() => setMenuOpen(true)} />
             <HamburgerMenu open={menuOpen} onClose={() => setMenuOpen(false)} />
             <h2 className="text-2xl font-bold text-center mb-2 mt-25">Recolecta y Recicla</h2>
-            <p className="text-center text-[#444] text-base mb-10 max-w-md">
+            <p className="text-center text-[#444] text-base mb-6 max-w-md">
                 Escanea el código QR de un contenedor y sube una foto de tu reciclaje para ganar CleanPoints.
             </p>
 
