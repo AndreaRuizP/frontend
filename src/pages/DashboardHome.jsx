@@ -84,7 +84,7 @@ export default function DashboardHome() {
             </span>
             <span className="flex items-center gap-1 text-lg font-bold text-[#FFC400]" style={{ fontSize: 18 }}>
               <i className="bi bi-award" style={{ fontSize: 22 }}></i>
-              50
+              +50
             </span>
           </div>
           <button className="w-full py-3 mt-1 rounded-lg bg-green-600 text-white font-semibold text-base transition hover:bg-green-700 active:scale-95" style={{ minHeight: 44, fontSize: 16 }}>
