@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { QrReader } from "react-qr-reader";
+import { Scanner } from "@yudiel/react-qr-scanner";
 import { Link } from "react-router-dom";
 import HamburgerMenu from "../components/HamburgerMenu";
 import UserHeader from "../components/UserHeader";
