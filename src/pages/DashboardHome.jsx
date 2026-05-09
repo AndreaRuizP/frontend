@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import HamburgerMenu from "../components/HamburgerMenu";
 import UserHeader from "../components/UserHeader";
+import ScanQR from "./ScanQR";
 
 export default function DashboardHome() {
   const [menuOpen, setMenuOpen] = useState(false);
