@@ -9,14 +9,9 @@ export default function ScanQR() {
     const [qrResult, setQrResult] = useState("");
 
     return (
-        <div className="min-h-screen bg-[#F8FAFC]">
-
-            {/* Header fijo */}
-            <div className="fixed top-0 left-0 w-full z-50 bg-white shadow-sm">
-                <UserHeader />
-                <HamburgerMenu />
-            </div>
-
+        <div className="min-h-screen bg-[#ffffff] flex flex-col items-center pt-3 px-0">
+            <UserHeader onMenu={() => setMenuOpen(true)} />
+            <HamburgerMenu open={menuOpen} onClose={() => setMenuOpen(false)} />
             {/* Contenido principal */}
             <div className="flex flex-col items-center justify-center px-4 pt-32 pb-10">
 
