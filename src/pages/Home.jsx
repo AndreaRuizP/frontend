@@ -19,7 +19,7 @@ export default function Home() {
             to="/login"
             className="w-full h-12 bg-green-600 text-white font-semibold rounded-lg transition active:bg-green-700 mb-3 flex items-center justify-center text-base"
           >
-            Empezar a Recolectar
+            Empieza a Recolectar
           </Link>
         </div>
       </section>
