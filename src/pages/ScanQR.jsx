@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Scanner } from "@yudiel/react-qr-scanner";
+import UserHeader from "../components/UserHeader";
+import HamburgerMenu from "../components/HamburgerMenu";
 
 export default function ScanQR() {
     const [showScanner, setShowScanner] = useState(false);
@@ -7,6 +9,8 @@ export default function ScanQR() {
 
     return (
         <div className="min-h-screen flex flex-col items-center justify-center bg-[#F8FAFC] p-4">
+            <UserHeader />
+            <HamburgerMenu />
             <h2 className="text-2xl font-bold text-center mb-2">Recolecta y Recicla</h2>
             <p className="text-center text-[#444] text-base mb-6 max-w-md">
                 Escanea el código QR de un contenedor y sube una foto de tu reciclaje
