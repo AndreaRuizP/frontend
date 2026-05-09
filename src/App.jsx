@@ -9,6 +9,7 @@ import Map from "./pages/Map";
 import Challenge from "./pages/Challenge";
 import Marketplace from "./pages/Marketplace";
 import DarkMode from "./components/DarkMode";
+import ScanQR from "./pages/ScanQR";
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
         <Route path="/map" element={<Map />} />
         <Route path="/retos" element={<Challenge />}></Route>
         <Route path="/marketplace" element={<Marketplace />}></Route>
+        <Route path="/scan" element={<ScanQR />}></Route>
       </Routes>
     </>
   );
