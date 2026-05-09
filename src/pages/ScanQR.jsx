@@ -23,7 +23,7 @@ export default function ScanQR() {
                     {!showScanner ? (
                         <>
                             <div className="mb-6 flex items-center justify-center">
-                                <i className="bi bi-qr-code-scan" style={{ fontSize: 64, color: "#212121" }}></i>
+                                <i className="bi bi-qr-code-scan" style={{ fontSize: 64, color: "#199A61" }}></i>
                             </div>
                             <div className="text-center mb-5">
                                 <div className="font-bold text-base text-[#222]">Escanea el Código QR</div>
@@ -34,7 +34,7 @@ export default function ScanQR() {
                                 className="flex items-center gap-2 border border-[#222] px-5 py-2 rounded-lg bg-white font-semibold text-[15px] hover:bg-gray-50 transition mt-1"
                                 style={{ minHeight: 40 }}
                             >
-                                <i className="bi bi-qr-code-scan text-lg"></i>
+                                <i className="bi bi-qr-code-scan text-lg text-[#199A61]"></i>
                                 Activar Escáner
                             </button>
                         </>
