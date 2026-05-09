@@ -4,117 +4,84 @@ import UserHeader from "../components/UserHeader";
 import HamburgerMenu from "../components/HamburgerMenu";
 
 export default function ScanQR() {
-
     const [showScanner, setShowScanner] = useState(false);
     const [qrResult, setQrResult] = useState("");
 
     return (
-        <div className="min-h-screen bg-[#ffffff] flex flex-col items-center pt-3 px-0">
-            <UserHeader onMenu={() => setMenuOpen(true)} />
-            <HamburgerMenu open={menuOpen} onClose={() => setMenuOpen(false)} />
-            {/* Contenido principal */}
-            <div className="flex flex-col items-center justify-center px-4 pt-32 pb-10">
-
-                {/* Título */}
-                <h2 className="text-2xl font-bold text-center mb-2 text-[#222]">
-                    Recolecta y Recicla
-                </h2>
-
-                {/* Descripción */}
-                <p className="text-center text-[#444] text-base mb-6 max-w-md">
-                    Escanea el código QR de un contenedor y sube una foto de tu
-                    reciclaje para ganar CleanPoints.
-                </p>
-
-                {/* Tarjeta */}
-                <div className="w-full max-w-sm mx-auto">
-
-                    <div className="border border-[#C3C3C3] rounded-2xl px-5 py-6 bg-white shadow-sm flex flex-col items-center">
-
-                        {!showScanner ? (
-                            <>
-                                {/* Icono */}
-                                <div className="mb-6 flex items-center justify-center">
-                                    <i
-                                        className="bi bi-qr-code-scan"
-                                        style={{
-                                            fontSize: 70,
-                                            color: "#212121",
-                                        }}
-                                    ></i>
+        <div className="min-h-screen flex flex-col items-center justify-center bg-[#F8FAFC] p-4">
+            <UserHeader />
+            <HamburgerMenu />
+            <h2 className="text-2xl font-bold text-center mb-2">Recolecta y Recicla</h2>
+            <p className="text-center text-[#444] text-base mb-6 max-w-md">
+                Escanea el código QR de un contenedor y sube una foto de tu reciclaje
+                para ganar CleanPoints.
+            </p>
+            <div className="w-full max-w-xs mx-auto flex flex-col items-center">
+                <div className="border border-[#C3C3C3] rounded-xl px-4 py-6 w-full bg-white shadow-sm flex flex-col items-center">
+                    {!showScanner ? (
+                        <>
+                            <div className="mb-6 flex items-center justify-center">
+                                <i
+                                    className="bi bi-qr-code-scan"
+                                    style={{ fontSize: 64, color: "#212121" }}
+                                ></i>
+                            </div>
+                            <div className="text-center mb-5">
+                                <div className="font-bold text-base text-[#222]">
+                                    Escanea el Código QR
                                 </div>
-
-                                {/* Texto */}
-                                <div className="text-center mb-5">
-                                    <div className="font-bold text-lg text-[#222] mb-1">
-                                        Escanea el Código QR
-                                    </div>
-
-                                    <div className="text-[#666] text-sm leading-relaxed">
-                                        Coloca el código QR del contenedor de reciclaje
-                                    </div>
+                                <div className="text-[#666] text-[14px] leading-tight">
+                                    Coloca el código QR del contenedor de reciclaje
                                 </div>
-
-                                {/* Botón */}
-                                <button
-                                    onClick={() => setShowScanner(true)}
-                                    className="flex items-center gap-2 border border-[#222] px-5 py-2 rounded-lg bg-white font-semibold text-[15px] hover:bg-gray-50 transition"
-                                >
-                                    <i className="bi bi-qr-code-scan text-lg"></i>
-                                    Activar Escáner
-                                </button>
-                            </>
-                        ) : (
-                            <div className="flex flex-col items-center w-full">
-
-                                {/* Scanner */}
-                                <div
-                                    className="w-full rounded-xl overflow-hidden border border-gray-200 mb-4"
-                                    style={{
-                                        aspectRatio: "1/1",
-                                        maxHeight: 320,
+                            </div>
+                            <button
+                                onClick={() => setShowScanner(true)}
+                                className="flex items-center gap-2 border border-[#222] px-5 py-2 rounded-lg bg-white font-semibold text-[15px] hover:bg-gray-50 transition mt-1"
+                            >
+                                <i className="bi bi-qr-code-scan text-lg"></i>
+                                Activar Escáner
+                            </button>
+                        </>
+                    ) : (
+                        <div className="flex flex-col items-center w-full">
+                            <div className="w-full rounded-lg overflow-hidden mb-3" style={{ aspectRatio: "1/1", maxHeight: 280 }}>
+                                <Scanner
+                                    constraints={{
+                                        facingMode: "environment",
                                     }}
-                                >
-                                    <Scanner
-                                        constraints={{
-                                            facingMode: "environment",
-                                        }}
-                                        onScan={(result) => {
-                                            if (result && result.length > 0) {
-                                                setQrResult(result[0].rawValue);
-                                                setShowScanner(false);
-                                            }
-                                        }}
-                                        onError={(error) => {
-                                            console.log(error);
-                                        }}
-                                    />
-                                </div>
-
-                                {/* Botón cancelar */}
-                                <button
-                                    onClick={() => setShowScanner(false)}
-                                    className="flex items-center gap-2 border border-[#888] px-4 py-2 rounded-lg bg-white text-[15px] hover:bg-gray-100 transition"
-                                >
-                                    Cancelar
-                                </button>
+                                    onScan={(result) => {
+                                        if (result && result.length > 0) {
+                                            setQrResult(result[0].rawValue);
+                                            setShowScanner(false);
+                                        }
+                                    }}
+                                    onError={(error) => {
+                                        console.log(error);
+                                    }}
+                                />
                             </div>
-                        )}
 
-                        {/* Resultado */}
-                        {qrResult && (
-                            <div className="mt-5 w-full text-center border-t pt-4">
+                            <button
+                                onClick={() => setShowScanner(false)}
+                                className="flex items-center gap-2 border border-[#888] px-3 py-2 rounded-lg bg-white font-normal text-[15px] hover:bg-gray-100 transition"
+                            >
+                                Cancelar
+                            </button>
+                        </div>
+                    )}
 
-                                <div className="text-green-700 font-bold mb-2">
-                                    ¡Código detectado!
-                                </div>
+                    {qrResult && (
+                        <div className="mt-3 w-full text-center">
 
-                                <div className="break-words text-sm text-gray-600 bg-gray-50 p-2 rounded-lg">
-                                    {qrResult}
-                                </div>
+                            <div className="text-green-700 font-bold mb-1">
+                                ¡Código detectado!
                             </div>
-                        )}
-                    </div>
+
+                            <div className="break-words text-xs text-gray-600">
+                                {qrResult}
+                            </div>
+                        </div>
+                    )}
                 </div>
             </div>
         </div>
