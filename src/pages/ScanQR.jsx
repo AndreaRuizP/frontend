@@ -31,7 +31,7 @@ export default function ScanQR() {
                             </div>
                             <button
                                 onClick={() => setShowScanner(true)}
-                                className="flex items-center gap-2 border border-[#ddd] px-4 py-2 rounded-xl bg-green-600 font-semibold active:bg-gray-50 transition text-white"
+                                className="flex items-center gap-2 border border-[#ddd] px-4 py-2 rounded-xl bg-[#199A61] font-semibold active:bg-gray-50 transition text-white"
                                 style={{ minHeight: 40 }}
                             >
                                 <i className="bi bi-qr-code-scan text-lg text-[#ffffff]"></i>
