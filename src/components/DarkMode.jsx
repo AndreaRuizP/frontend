@@ -1,4 +1,3 @@
-// DarkMode.jsx
 export default function DarkMode({ checked, onChange }) {
   return (
     <label className="relative inline-block w-14 h-8 cursor-pointer select-none">

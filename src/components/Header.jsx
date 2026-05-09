@@ -1,4 +1,6 @@
 import logo from "../assets/logo.png";
+import DarkMode from "./DarkMode";
+import { useState } from "react";
 
 export default function Header() {
   return (
