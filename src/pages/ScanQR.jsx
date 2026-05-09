@@ -34,7 +34,7 @@ export default function ScanQR() {
                                 className="flex items-center gap-2 border border-[#ddd] px-4 py-2 rounded-xl bg-green-600 font-semibold active:bg-gray-50 transition text-white"
                                 style={{ minHeight: 40 }}
                             >
-                                <i className="bi bi-qr-code-scan text-lg text-[#199A61]"></i>
+                                <i className="bi bi-qr-code-scan text-lg text-[#ffffff]"></i>
                                 Activar Escáner
                             </button>
                         </>
