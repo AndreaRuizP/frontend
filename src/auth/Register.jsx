@@ -21,7 +21,7 @@ export default function Register() {
         onSubmit={handleSubmit}
       >
         <h1 className="text-2xl font-bold text-center text-green-600 mb-1">
-          Clean Point
+          CleanPoints
         </h1>
         <p className="text-center text-[#7D8797] text-sm mb-8">
           Crea tu cuenta para comenzar
