@@ -35,7 +35,7 @@ export default function DashboardHome() {
             <span className="text-[15px] font-semibold mb-0">Contenedores</span>
             <span className="text-xs text-[#7D8797]">cercanos</span>
           </button>
-          <Link to="/scan" className="flex flex-col bg-white rounded-2xl border border-[#E0E5EB] shadow-sm items-center py-5 px-2 min-h-[92px] justify-center group active:bg-gray-50 transition">
+          <Link to="/scanqr" className="flex flex-col bg-white rounded-2xl border border-[#E0E5EB] shadow-sm items-center py-5 px-2 min-h-[92px] justify-center group active:bg-gray-50 transition">
             <span className="mb-2 flex items-center justify-center" style={{ width: 28, height: 28 }}>
               <i className="bi bi-qr-code-scan" style={{ fontSize: 28, color: "#199A61" }}></i>
             </span>
