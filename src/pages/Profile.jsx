@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 import UserHeader from "../components/UserHeader";
 import HamburgerMenu from "../components/HamburgerMenu";
 
@@ -16,7 +16,7 @@ const stats = [
 
 export default function Profile() {
   const [menuOpen, setMenuOpen] = useState(false);
-  
+
   return (
     <div className="flex flex-col min-h-screen bg-gray-50">
       <UserHeader className="bg-transparent" showBell={false} />
