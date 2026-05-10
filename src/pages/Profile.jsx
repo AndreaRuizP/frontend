@@ -16,7 +16,7 @@ export default function Profile() {
       <div className="flex items-center justify-between px-5 pt-6 pb-2">
         <h1 className="text-2xl font-black text-gray-800">Mi Perfil</h1>
         <button className="w-10 h-10 bg-white rounded-full shadow flex items-center justify-center border border-gray-100">
-          <i className="fi fi-rr-settings text-gray-500 text-lg"></i>
+          <i className="fi fi-rr-settings text-gray-500 text-lg mt-2"></i>
         </button>
       </div>
       <div className="mx-4 mt-2 mb-4">
