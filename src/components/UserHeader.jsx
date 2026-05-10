@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import DarkMode from "./DarkMode";
+import profile from "../pages/Profile";
 
 export default function UserHeader({
   onMenu,
