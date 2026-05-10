@@ -12,6 +12,7 @@
   "dependencies": {
     "@yudiel/react-qr-scanner": "^2.5.1",
     "leaflet": "^1.9.4",
+    "lucide-react": "^1.14.0",
     "mapbox-gl": "^3.23.1",
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
