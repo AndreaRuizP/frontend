@@ -11,8 +11,6 @@ const stats = [
 ];
 
 export default function Profile() {
-  const [menuOpen, setMenuOpen] = useState(false);
-
   return (
     <div className="flex flex-col min-h-screen bg-gray-50">
       <div className="flex items-center justify-between px-5 pt-6 pb-2">
