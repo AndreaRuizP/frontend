@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import DarkMode from "./DarkMode";
-import profile from "../pages/Profile";
 
 export default function UserHeader({
   onMenu,
@@ -12,6 +11,7 @@ export default function UserHeader({
   className = "",
 }) {
   const [darkMode, setDarkMode] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <header
@@ -44,14 +44,14 @@ export default function UserHeader({
         )}
 
         {showUser && (
-          <Link
-            to="/profile"
+          <button
             aria-label="Cuenta"
-            className="flex items-center justify-center p-0 m-0"
+            onClick={() => navigate("/profile")}
+            className="flex items-center justify-center bg-transparent border-0 p-0 m-0"
             style={{ minWidth: 44, minHeight: 44 }}
           >
             <i className="fi fi-rr-user text-xl"></i>
-          </Link>
+          </button>
         )}
       </div>
     </header>
