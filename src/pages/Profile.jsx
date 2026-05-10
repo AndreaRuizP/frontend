@@ -1,33 +1,32 @@
-import { Settings, ChevronRight, LogOut } from 'lucide-react';
-
 const history = [
-  { icon: '♻️', label: 'Botella plástica validada', time: 'Hace 2 horas', points: '+10' },
-  { icon: '📦', label: 'Cartón depositado', time: 'Ayer', points: '+8' },
-  { icon: '🏆', label: 'Reto completado: 5 latas', time: 'Hace 3 días', points: '+50' },
+  { icon: "fi fi-rr-recycle", label: "Botella plástica validada", time: "Hace 2 horas", points: "+10" },
+  { icon: "fi fi-rr-box-alt", label: "Cartón depositado", time: "Ayer", points: "+8" },
+  { icon: "fi fi-rr-trophy", label: "Reto completado: 5 latas", time: "Hace 3 días", points: "+50" },
 ];
 
 const stats = [
-  { value: '350', label: 'CleanPoints', icon: '⭐' },
-  { value: '24', label: 'Acciones', icon: '♻️' },
-  { value: '5', label: 'Retos logrados', icon: '🏆' },
+  { value: "350", label: "CleanPoints", icon: "fi fi-rr-star" },
+  { value: "24", label: "Acciones", icon: "fi fi-rr-recycle" },
+  { value: "5", label: "Retos logrados", icon: "fi fi-rr-trophy" },
 ];
 
 export default function Profile() {
   return (
     <div className="flex flex-col min-h-screen bg-gray-50">
+
+      {/* Header */}
       <div className="flex items-center justify-between px-5 pt-6 pb-2">
         <h1 className="text-2xl font-black text-gray-800">Mi Perfil</h1>
         <button className="w-10 h-10 bg-white rounded-full shadow flex items-center justify-center border border-gray-100">
-          <Settings size={18} className="text-gray-500" />
+          <i className="fi fi-rr-settings text-gray-500 text-lg"></i>
         </button>
       </div>
+
+      {/* Profile Card */}
       <div className="mx-4 mt-2 mb-4">
         <div className="bg-white rounded-2xl p-5 shadow-sm border border-gray-100 flex flex-col items-center">
           <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mb-3 border-4 border-green-200">
-            <svg width="36" height="36" fill="none" stroke="#16a34a" strokeWidth="2" viewBox="0 0 24 24">
-              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-              <circle cx="12" cy="7" r="4" />
-            </svg>
+            <i className="fi fi-rr-user text-green-600" style={{ fontSize: 36 }}></i>
           </div>
           <h2 className="font-black text-gray-800 text-lg">Nombre_Usuario</h2>
           <p className="text-gray-400 text-xs mb-3">tu@gmail.com</p>
@@ -36,26 +35,30 @@ export default function Profile() {
           </span>
         </div>
       </div>
+
+      {/* Stats */}
       <div className="mx-4 mb-4 grid grid-cols-3 gap-3">
         {stats.map(({ value, label, icon }) => (
           <div key={label} className="bg-white rounded-2xl p-3 shadow-sm border border-gray-100 flex flex-col items-center gap-1">
-            <span className="text-xl">{icon}</span>
+            <i className={`${icon} text-green-500 text-xl`}></i>
             <span className="text-xl font-black text-gray-900">{value}</span>
             <span className="text-[10px] text-gray-400 text-center font-semibold leading-tight">{label}</span>
           </div>
         ))}
       </div>
+
+      {/* Progress to next level */}
       <div className="mx-4 mb-4">
         <div className="bg-white rounded-2xl p-4 shadow-sm border border-gray-100">
           <div className="flex items-center justify-between mb-1">
             <h3 className="font-bold text-gray-800 text-sm">Progreso al siguiente nivel</h3>
-            <ChevronRight size={16} className="text-gray-400" />
+            <i className="fi fi-rr-angle-right text-gray-400"></i>
           </div>
           <p className="text-xs text-gray-400 mb-3">Nivel 4: Reciclador Experto — faltan 150 pts</p>
           <div className="h-2.5 bg-gray-100 rounded-full overflow-hidden mb-2">
             <div
               className="h-full bg-gradient-to-r from-green-400 to-green-500 rounded-full"
-              style={{ width: '70%' }}
+              style={{ width: "70%" }}
             />
           </div>
           <div className="flex justify-between">
@@ -64,13 +67,15 @@ export default function Profile() {
           </div>
         </div>
       </div>
+
+      {/* Recent History */}
       <div className="mx-4 mb-4">
         <h3 className="font-bold text-gray-700 text-sm mb-2 px-1">Historial reciente</h3>
         <div className="bg-white rounded-2xl shadow-sm border border-gray-100 divide-y divide-gray-50">
           {history.map(({ icon, label, time, points }, i) => (
             <div key={i} className="flex items-center gap-3 px-4 py-3">
-              <div className="w-9 h-9 bg-green-50 rounded-xl flex items-center justify-center text-lg flex-shrink-0">
-                {icon}
+              <div className="w-9 h-9 bg-green-50 rounded-xl flex items-center justify-center flex-shrink-0">
+                <i className={`${icon} text-green-500 text-lg`}></i>
               </div>
               <div className="flex-1 min-w-0">
                 <p className="text-sm font-bold text-gray-800 truncate">{label}</p>
@@ -81,9 +86,11 @@ export default function Profile() {
           ))}
         </div>
       </div>
+
+      {/* Logout */}
       <div className="mx-4 mb-8">
         <button className="w-full bg-white border border-gray-200 text-gray-600 font-bold py-3.5 rounded-2xl text-sm flex items-center justify-center gap-2 hover:bg-red-50 hover:text-red-500 hover:border-red-200 transition-colors">
-          <LogOut size={16} />
+          <i className="fi fi-rr-sign-out text-lg"></i>
           Cerrar Sesión
         </button>
       </div>
