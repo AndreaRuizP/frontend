@@ -1,7 +1,3 @@
-import { useState } from "react";
-import UserHeader from "../components/UserHeader";
-import HamburgerMenu from "../components/HamburgerMenu";
-
 const history = [
   { icon: "fi fi-rr-recycle", label: "Botella plástica validada", time: "Hace 2 horas", points: "+10" },
   { icon: "fi fi-rr-box-alt", label: "Cartón depositado", time: "Ayer", points: "+8" },
@@ -19,8 +15,6 @@ export default function Profile() {
 
   return (
     <div className="flex flex-col min-h-screen bg-gray-50">
-      <UserHeader onMenu={() => setMenuOpen(true)} />
-      <HamburgerMenu open={menuOpen} onClose={() => setMenuOpen(false)} />
       <div className="flex items-center justify-between px-5 pt-6 pb-2">
         <h1 className="text-2xl font-black text-gray-800">Mi Perfil</h1>
         <button className="w-10 h-10 bg-white rounded-full shadow flex items-center justify-center border border-gray-100">
