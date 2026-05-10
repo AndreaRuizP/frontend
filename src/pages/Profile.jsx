@@ -9,9 +9,9 @@ const history = [
 ];
 
 const stats = [
-  { value: "350", label: "CleanPoints", icon: "fi fi-rr-star" },
-  { value: "24", label: "Acciones", icon: "fi fi-rr-recycle" },
-  { value: "5", label: "Retos logrados", icon: "fi fi-rr-trophy" },
+  { value: "350", label: "CleanPoints" },
+  { value: "24", label: "Acciones" },
+  { value: "5", label: "Retos logrados" },
 ];
 
 export default function Profile() {
@@ -27,8 +27,6 @@ export default function Profile() {
           <i className="fi fi-rr-settings text-gray-500 text-lg"></i>
         </button>
       </div>
-
-      {/* Profile Card */}
       <div className="mx-4 mt-2 mb-4">
         <div className="bg-white rounded-2xl p-5 shadow-sm border border-gray-100 flex flex-col items-center">
           <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mb-3 border-4 border-green-200">
@@ -41,8 +39,6 @@ export default function Profile() {
           </span>
         </div>
       </div>
-
-      {/* Stats */}
       <div className="mx-4 mb-4 grid grid-cols-3 gap-3">
         {stats.map(({ value, label, icon }) => (
           <div key={label} className="bg-white rounded-2xl p-3 shadow-sm border border-gray-100 flex flex-col items-center gap-1">
@@ -52,8 +48,6 @@ export default function Profile() {
           </div>
         ))}
       </div>
-
-      {/* Progress to next level */}
       <div className="mx-4 mb-4">
         <div className="bg-white rounded-2xl p-4 shadow-sm border border-gray-100">
           <div className="flex items-center justify-between mb-1">
@@ -73,8 +67,6 @@ export default function Profile() {
           </div>
         </div>
       </div>
-
-      {/* Recent History */}
       <div className="mx-4 mb-4">
         <h3 className="font-bold text-gray-700 text-sm mb-2 px-1">Historial reciente</h3>
         <div className="bg-white rounded-2xl shadow-sm border border-gray-100 divide-y divide-gray-50">
@@ -92,8 +84,6 @@ export default function Profile() {
           ))}
         </div>
       </div>
-
-      {/* Logout */}
       <div className="mx-4 mb-8">
         <button className="w-full bg-white border border-gray-200 text-gray-600 font-bold py-3.5 rounded-2xl text-sm flex items-center justify-center gap-2 hover:bg-red-50 hover:text-red-500 hover:border-red-200 transition-colors">
           <i className="fi fi-rr-sign-out text-lg"></i>
