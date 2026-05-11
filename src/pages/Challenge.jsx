@@ -97,9 +97,6 @@ export default function Challenge() {
                   >
                     {r.dificultad}
                   </span>
-                  <button className="w-full py-3 mt-1 rounded-lg bg-green-600 text-white font-semibold text-base transition hover:bg-green-700 active:scale-95" style={{ minHeight: 44, fontSize: 16 }}>
-                    Continuar Reto
-                  </button>
                 </div>
 
                 <p className="text-[#7D8797] text-sm mb-3" style={{ fontSize: 15, lineHeight: 1.5 }}>
@@ -131,6 +128,9 @@ export default function Challenge() {
                     <i className="bi bi-award" style={{ fontSize: 22 }}></i>
                     +{r.puntos} pts
                   </span>
+                  <button className="w-full py-3 mt-1 rounded-lg bg-green-600 text-white font-semibold text-base transition hover:bg-green-700 active:scale-95" style={{ minHeight: 44, fontSize: 16 }}>
+                    Continuar Reto
+                  </button>
                 </div>
               </div>
             );
