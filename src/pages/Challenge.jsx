@@ -54,7 +54,6 @@ export default function Challenge() {
       <UserHeader onMenu={() => setMenuOpen(true)} />
       <HamburgerMenu open={menuOpen} onClose={() => setMenuOpen(false)} />
 
-      {/* Cambia px-2 por px-4 aquí para mayor espacio a los lados */}
       <div className={menuOpen ? "hidden" : "w-full max-w-md mx-auto px-4"}>
 
         <div className="bg-white rounded-2xl border border-[#E0E5EB] px-5 py-3 mb-4">
@@ -98,6 +97,9 @@ export default function Challenge() {
                   >
                     {r.dificultad}
                   </span>
+                  <button className="w-full py-3 mt-1 rounded-lg bg-green-600 text-white font-semibold text-base transition hover:bg-green-700 active:scale-95" style={{ minHeight: 44, fontSize: 16 }}>
+                    Continuar Reto
+                  </button>
                 </div>
 
                 <p className="text-[#7D8797] text-sm mb-3" style={{ fontSize: 15, lineHeight: 1.5 }}>
