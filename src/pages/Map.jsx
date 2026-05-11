@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { Link } from "react-router-dom";
 import "leaflet/dist/leaflet.css";
 import UserHeader from "../components/UserHeader";
 import HamburgerMenu from "../components/HamburgerMenu";
+import ScanQR from "./ScanQR";
 
 const contenedores = [
   {
