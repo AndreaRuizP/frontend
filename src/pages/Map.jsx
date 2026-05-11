@@ -43,13 +43,13 @@ export default function Map() {
           </div>
         </div>
         <div className="flex justify-start mb-4">
-          <button
+          <Link to="/scan"
             className="flex items-center gap-2 border border-[#ddd] px-4 py-2 rounded-xl bg-green-600 font-semibold active:bg-gray-50 transition text-white"
             style={{ minHeight:44 }}
           >
             <i className="bi bi-qr-code-scan" style={{ fontSize: 20, color: "#ffffff" }}></i>
             Escanear QR
-          </button>
+          </Link>
         </div>
         <div className="rounded-xl overflow-hidden w-full mb-4 border border-[#E0E5EB] shadow"
           style={{ height: 210 }}>
