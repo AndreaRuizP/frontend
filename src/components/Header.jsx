@@ -13,9 +13,9 @@ export default function Header({
       <button className="ml-3">
         <img src={logo} alt="Logo" className="h-8" />
       </button>
-      {showDarkMode && (
-        <DarkMode checked={darkMode} onChange={setDarkMode} />
-      )}
+      <button className="mr-3">
+        <i className="bi bi-sun text-2xl"></i>
+      </button>
     </header>
   );
 }

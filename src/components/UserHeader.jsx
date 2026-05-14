@@ -15,7 +15,7 @@ export default function UserHeader({
 
   return (
     <header
-      className={`w-full max-w-md mx-auto flex items-center justify-between pl-3 pr-4 mb-0 ${className}`}
+      className={`w-full mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-8 mb-0 ${className}`}
       style={{ minHeight: 48 }}
     >
       <button
@@ -28,9 +28,13 @@ export default function UserHeader({
       </button>
 
       <div className="flex items-center gap-3">
-        {showDarkMode && (
-          <DarkMode checked={darkMode} onChange={setDarkMode} />
-        )}
+        <button
+          aria-label="Modo claro"
+          className="flex items-center justify-center bg-transparent border-0 p-0 m-0"
+          style={{ minWidth: 44, minHeight: 44 }}
+        >
+          <i className="bi bi-sun text-2xl leading-none block"></i>
+        </button>
 
         {showBell && (
           <button

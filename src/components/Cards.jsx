@@ -28,11 +28,11 @@ const CARDS = [
 
 export default function Cards() {
   return (
-    <div className="w-full max-w-md mx-auto grid gap-4 pb-8 px-4">
+    <div className="w-full mx-auto grid gap-4 sm:grid-cols-2 xl:grid-cols-3 pb-8">
       {CARDS.map(card => (
         <div
           key={card.title}
-          className="bg-white border border-[#E0E5EB] rounded-xl p-6 flex flex-col items-center text-center shadow-sm transition"
+          className="min-h-[180px] bg-white border border-[#E0E5EB] rounded-xl p-6 flex flex-col items-center text-center shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
         >
           {card.icon}
           <h3 className="text-lg font-bold text-[#141B21] mb-2">{card.title}</h3>
