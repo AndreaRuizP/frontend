@@ -21,7 +21,7 @@ export default function Home() {
               <div className="mt-6 flex flex-col items-center gap-3 sm:flex-row sm:items-center lg:justify-start">
                 <Link
                   to="/login"
-                  className="inline-flex h-11 sm:h-12 items-center justify-center rounded-md bg-green-600 px-5 sm:px-6 text-sm sm:text-[0.95rem] font-semibold text-white transition hover:bg-green-700 active:bg-green-800"
+                  className="inline-flex h-12 sm:h-14 items-center justify-center rounded-md bg-green-600 px-6 sm:px-7 text-base sm:text-[1rem] font-semibold text-white transition hover:bg-green-700 active:bg-green-800"
                 >
                   Empieza a Recolectar
                 </Link>
