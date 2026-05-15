@@ -102,7 +102,7 @@ export default function Marketplace() {
                   onClick={() => setFiltro(tab)}
                   className={`flex-1 lg:flex-none lg:w-full py-2 rounded-xl border text-xs font-semibold transition
                 ${filtro === tab
-                      ? "bg-[#199A61] text-white border-[#199A61]"
+                      ? "bg-green-600 text-white border-green-600"
                       : "bg-white text-[#141B21] border-[#E0E5EB]"
                     }`}
                   style={{ fontSize: 13, minHeight: 36 }}

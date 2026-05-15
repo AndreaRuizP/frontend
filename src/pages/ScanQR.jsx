@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Scanner } from "@yudiel/react-qr-scanner";
+import { useNavigate } from "react-router-dom";
 import HamburgerMenu from "../components/HamburgerMenu";
 import UserHeader from "../components/UserHeader";
 import Sidebar from "../components/Sidebar";
@@ -8,6 +9,24 @@ export default function ScanQR() {
     const [showScanner, setShowScanner] = useState(false);
     const [qrResult, setQrResult] = useState(null);
     const [menuOpen, setMenuOpen] = useState(false);
+    const navigate = useNavigate();
+
+    const handleQRDetected = (qrValue) => {
+        if (!qrValue) return;
+        
+        setQrResult(qrValue);
+        setShowScanner(false);
+        
+        // Redirige al módulo de foto con delay
+        setTimeout(() => {
+            navigate(`/capture-photo?qr=${encodeURIComponent(qrValue)}`);
+        }, 1000);
+    };
+
+    const handleReset = () => {
+        setQrResult(null);
+        setShowScanner(false);
+    };
 
     return (
         <div className="min-h-screen bg-white flex flex-col lg:flex-row">
@@ -25,17 +44,10 @@ export default function ScanQR() {
 
                 <main className="w-full max-w-md lg:max-w-4xl mx-auto px-4 lg:px-8 py-4 lg:py-6 flex-1">
                     <div className="space-y-4 lg:space-y-6">
-                        <div className="rounded-3xl bg-gradient-to-r from-emerald-50 to-cyan-50 border border-emerald-100 shadow-sm px-5 py-5 lg:px-6 lg:py-6">
-                            <p className="text-xs font-bold uppercase tracking-[0.2em] text-emerald-700">Escaneo rápido</p>
-                            <div className="mt-2 flex flex-wrap items-end gap-3">
-                                <h1 className="text-3xl lg:text-4xl font-black text-[#141B21] leading-none">Recolecta y Recicla</h1>
-                            </div>
-                        </div>
-
                         <div className="bg-white rounded-3xl shadow-sm border border-[#E0E5EB] p-5 lg:p-6">
                             <div className="flex items-start justify-between gap-4 mb-4">
                                 <div>
-                                    <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#199A61]">Lector QR</p>
+                                    <p className="text-xs font-bold uppercase tracking-[0.2em] text-green-600">Lector QR</p>
                                     <h2 className="text-xl lg:text-2xl font-black text-[#141B21] mt-1">Escanea el Código QR</h2>
                                     <p className="text-sm lg:text-base text-[#6B7280] mt-2 leading-6 max-w-xl">
                                         Coloca el QR del contenedor dentro del marco para detectarlo automáticamente.
@@ -58,7 +70,7 @@ export default function ScanQR() {
 
                                     <button
                                         onClick={() => setShowScanner(true)}
-                                        className="mt-5 inline-flex items-center gap-2 rounded-xl bg-[#199A61] px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-[#178353] active:scale-95"
+                                        className="mt-5 inline-flex items-center gap-2 rounded-xl bg-green-600 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-green-700 active:scale-95"
                                         style={{ minHeight: 44 }}
                                     >
                                         <i className="bi bi-qr-code-scan text-lg"></i>
@@ -79,13 +91,15 @@ export default function ScanQR() {
                                                 facingMode: "environment",
                                             }}
                                             onScan={(result) => {
+                                                console.log("QR detectado:", result);
                                                 if (result && result.length > 0) {
-                                                    setQrResult(result[0].rawValue);
-                                                    setShowScanner(false);
+                                                    const qrText = result[0]?.rawValue || result[0];
+                                                    console.log("Valor QR:", qrText);
+                                                    handleQRDetected(qrText);
                                                 }
                                             }}
                                             onError={(error) => {
-                                                console.log(error);
+                                                console.error("Error en escáner:", error);
                                             }}
                                         />
                                     </div>
@@ -98,7 +112,7 @@ export default function ScanQR() {
                                             Cancelar
                                         </button>
                                         <button
-                                            onClick={() => setQrResult("QR de prueba detectado")}
+                                            onClick={() => handleQRDetected("CONTENEDOR-12345")}
                                             className="inline-flex items-center gap-2 rounded-xl bg-[#141B21] px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-black"
                                         >
                                             Simular lectura
@@ -116,6 +130,7 @@ export default function ScanQR() {
                                         <div className="min-w-0 flex-1">
                                             <p className="font-bold text-emerald-800">¡Código detectado!</p>
                                             <p className="text-sm text-emerald-700 mt-1 break-words">{qrResult}</p>
+                                            <p className="text-xs text-emerald-600 mt-2">Redirigiendo a captura de foto...</p>
                                         </div>
                                     </div>
                                 </div>

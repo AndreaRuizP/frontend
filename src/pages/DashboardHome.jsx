@@ -74,12 +74,12 @@ export default function DashboardHome() {
 
               <div className="grid grid-cols-2 lg:grid-cols-2 gap-3 lg:gap-4">
                 <button className="flex flex-col bg-white rounded-2xl border border-[#E0E5EB] shadow-sm items-center py-5 lg:py-6 px-3 lg:px-4 min-h-[104px] lg:min-h-[124px] justify-center transition hover:-translate-y-0.5 hover:shadow-md hover:bg-emerald-50">
-                  <i className="fi fi-rr-map text-2xl lg:text-4xl mb-2 text-[#199A61]"></i>
+                  <i className="fi fi-rr-map text-2xl lg:text-4xl mb-2 text-green-600"></i>
                   <span className="text-[15px] lg:text-base font-semibold mb-0 text-center">Contenedores</span>
                   <span className="text-xs text-[#7D8797] text-center">cercanos</span>
                 </button>
                 <Link to="/scan" className="flex flex-col bg-white rounded-2xl border border-[#E0E5EB] shadow-sm items-center py-5 lg:py-6 px-3 lg:px-4 min-h-[104px] lg:min-h-[124px] justify-center transition hover:-translate-y-0.5 hover:shadow-md hover:bg-emerald-50">
-                  <i className="bi bi-qr-code-scan text-2xl lg:text-4xl mb-2 text-[#199A61]"></i>
+                  <i className="bi bi-qr-code-scan text-2xl lg:text-4xl mb-2 text-green-600"></i>
                   <span className="text-[15px] lg:text-base font-semibold mb-0 text-center">Escanear QR</span>
                   <span className="text-xs text-[#7D8797] text-center">Valida acción</span>
                 </Link>
