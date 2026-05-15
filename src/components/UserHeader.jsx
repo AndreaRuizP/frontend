@@ -5,6 +5,7 @@ import DarkMode from "./DarkMode";
 export default function UserHeader({
   onMenu,
   onBell,
+  showMenu = true,
   showDarkMode = true,
   showBell = true,
   showUser = true,
@@ -18,14 +19,18 @@ export default function UserHeader({
       className={`w-full mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-8 mb-0 ${className}`}
       style={{ minHeight: 48 }}
     >
-      <button
-        aria-label="Menú"
-        onClick={onMenu}
-        className="flex items-center justify-center p-0 m-0"
-        style={{ minWidth: 44, minHeight: 44 }}
-      >
-        <i className="fi fi-rr-menu-burger text-xl"></i>
-      </button>
+      {showMenu ? (
+        <button
+          aria-label="Menú"
+          onClick={onMenu}
+          className="flex items-center justify-center p-0 m-0"
+          style={{ minWidth: 44, minHeight: 44 }}
+        >
+          <i className="fi fi-rr-menu-burger text-xl"></i>
+        </button>
+      ) : (
+        <div style={{ minWidth: 44, minHeight: 44 }} />
+      )}
 
       <div className="flex items-center gap-3">
         <button
