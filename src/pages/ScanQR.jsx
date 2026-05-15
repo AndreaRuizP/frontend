@@ -10,7 +10,7 @@ export default function ScanQR() {
     const [menuOpen, setMenuOpen] = useState(false);
 
     return (
-        <div className="min-h-screen bg-[#f8fafc] flex flex-col lg:flex-row">
+        <div className="min-h-screen bg-white flex flex-col lg:flex-row">
             <Sidebar />
 
             <div className="flex-1 flex flex-col lg:ml-64">
