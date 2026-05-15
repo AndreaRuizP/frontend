@@ -1,27 +1,80 @@
 @import "tailwindcss";
 
 .icon-click {
-	display: inline-block;
-	transform-origin: center;
-	animation: clickTap 1.15s ease-in-out infinite;
-	filter: drop-shadow(0 1px 0 rgba(0, 0, 0, 0.08));
+    display: inline-block;
+    transform-origin: center;
+    animation: clickTap 1.15s ease-in-out infinite;
+    filter: drop-shadow(0 1px 0 rgba(0, 0, 0, 0.08));
 }
 
 @keyframes clickTap {
-	0%,
-	100% {
-		transform: translateY(0) scale(1);
-	}
 
-	22% {
-		transform: translateY(1px) scale(0.88);
-	}
+    0%,
+    100% {
+        transform: translateY(0) scale(1);
+    }
 
-	42% {
-		transform: translateY(-1px) scale(1.07);
-	}
+    22% {
+        transform: translateY(1px) scale(0.88);
+    }
 
-	58% {
-		transform: translateY(0) scale(1);
-	}
+    42% {
+        transform: translateY(-1px) scale(1.07);
+    }
+
+    58% {
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes float1 {
+
+    0%,
+    100% {
+        transform: translateY(0px) scale(1);
+    }
+
+    50% {
+        transform: translateY(-20px) scale(1.05);
+    }
+}
+
+@keyframes float2 {
+
+    0%,
+    100% {
+        transform: translateY(0px) translateX(0px);
+    }
+
+    33% {
+        transform: translateY(-15px) translateX(10px);
+    }
+
+    66% {
+        transform: translateY(10px) translateX(-8px);
+    }
+}
+
+@keyframes float3 {
+
+    0%,
+    100% {
+        transform: translateY(0px) scale(1);
+    }
+
+    50% {
+        transform: translateY(18px) scale(0.95);
+    }
+}
+
+@keyframes floatIcon {
+
+    0%,
+    100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-14px) rotate(12deg);
+    }
 }
