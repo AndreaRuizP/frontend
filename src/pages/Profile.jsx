@@ -98,12 +98,12 @@ export default function Profile() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 lg:gap-4 mb-4 lg:mb-6">
+          <div className="grid grid-cols-3 gap-2 lg:gap-4 mb-4 lg:mb-6">
             {stats.map(({ value, label, icon }) => (
-              <div key={label} className="bg-white rounded-2xl p-3 shadow-sm border border-gray-100 flex flex-col items-center gap-1">
-                <i className={`${icon} text-green-500 text-xl`}></i>
-                <span className="text-xl font-black text-gray-900">{value}</span>
-                <span className="text-[10px] text-gray-400 text-center font-semibold leading-tight">{label}</span>
+              <div key={label} className="bg-white rounded-2xl p-2.5 lg:p-3 shadow-sm border border-gray-100 flex flex-col items-center gap-1 min-h-[92px] lg:min-h-0">
+                <i className={`${icon} text-green-500 text-lg lg:text-xl`}></i>
+                <span className="text-[18px] lg:text-xl font-black text-gray-900 leading-none">{value}</span>
+                <span className="text-[9px] lg:text-[10px] text-gray-400 text-center font-semibold leading-tight">{label}</span>
               </div>
             ))}
           </div>
