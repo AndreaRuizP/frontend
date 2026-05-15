@@ -38,7 +38,7 @@ export default function UserHeader({
           className="flex items-center justify-center bg-transparent border-0 p-0 m-0"
           style={{ minWidth: 44, minHeight: 44 }}
         >
-          <i className="bi bi-sun text-2xl leading-none block"></i>
+          <i className="bi bi-sun text-2xl leading-none block -translate-y-[2px]"></i>
         </button>
 
         {showBell && (
