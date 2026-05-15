@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import Cards from "../components/Cards";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
+import heroImage from "../assets/img_1.png";
 
 export default function Home() {
   return (
@@ -29,7 +30,7 @@ export default function Home() {
             </div>
             <div className="relative">
               <img
-                src="../src/assets/img_1.png"
+                src={heroImage}
                 alt="Reciclaje"
                 className="w-full rounded-lg shadow-lg object-cover h-64 sm:h-80 lg:h-full"
               />
