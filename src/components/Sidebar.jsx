@@ -5,10 +5,10 @@ export default function Sidebar() {
   const location = useLocation();
 
   const links = [
-    { to: "/dashboard", label: "Home", icon: "fi fi-rr-home" },
-    { to: "/map", label: "Mapa", icon: "fi fi-rr-map-marker" },
-    { to: "/retos", label: "Retos", icon: "fi fi-rr-flame" },
-    { to: "/marketplace", label: "Marketplace", icon: "fi fi-rr-shopping-cart" },
+    { to: "/dashboard", label: "Home", icon: "fi fi-rr-home text-green-600" },
+    { to: "/map", label: "Mapa", icon: "fi fi-rr-map-marker text-green-600" },
+    { to: "/retos", label: "Retos", icon: "fi fi-rr-flame text-green-600" },
+    { to: "/marketplace", label: "Marketplace", icon: "fi fi-rr-shopping-cart text-green-600" },
   ];
 
   const isActive = (path) => location.pathname === path;

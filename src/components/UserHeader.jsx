@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import DarkMode from "./DarkMode";
+import NotificationBell from "./NotificationBell";
 
 export default function UserHeader({
   onMenu,
@@ -23,43 +24,38 @@ export default function UserHeader({
         <button
           aria-label="Menú"
           onClick={onMenu}
-          className="flex items-center justify-center p-0 m-0"
+          className="flex items-center justify-center p-0 m-0 w-11 h-11"
           style={{ minWidth: 44, minHeight: 44 }}
         >
-          <i className="fi fi-rr-menu-burger text-xl"></i>
+          <i className="fi fi-rr-menu-burger text-xl leading-none block"></i>
         </button>
       ) : (
         <div style={{ minWidth: 44, minHeight: 44 }} />
       )}
 
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-2 sm:gap-3">
         <button
           aria-label="Modo claro"
-          className="flex items-center justify-center bg-transparent border-0 p-0 m-0"
+          className="flex items-center justify-center bg-transparent border-0 p-0 m-0 w-11 h-11 leading-none"
           style={{ minWidth: 44, minHeight: 44 }}
         >
-          <i className="bi bi-sun text-2xl leading-none block -translate-y-[2px]"></i>
+          <i className="bi bi-sun text-2xl leading-none block"></i>
         </button>
 
         {showBell && (
-          <button
-            aria-label="Notificaciones"
-            onClick={onBell}
-            className="flex items-center justify-center bg-transparent border-0 p-0 m-0"
-            style={{ minWidth: 44, minHeight: 44 }}
-          >
-            <i className="fi fi-rr-bell text-xl"></i>
-          </button>
+          <div onClick={(e) => e.stopPropagation()} className="w-11 h-11 flex items-center justify-center">
+            <NotificationBell onBell={onBell} />
+          </div>
         )}
 
         {showUser && (
           <button
             aria-label="Cuenta"
             onClick={() => navigate("/profile")}
-            className="flex items-center justify-center bg-transparent border-0 p-0 m-0"
+            className="flex items-center justify-center bg-transparent border-0 p-0 m-0 w-11 h-11 mt-2 leading-none"
             style={{ minWidth: 44, minHeight: 44 }}
           >
-            <i className="fi fi-rr-user text-xl"></i>
+            <i className="fi fi-rr-user text-xl leading-none block -translate-y-[1px]"></i>
           </button>
         )}
       </div>

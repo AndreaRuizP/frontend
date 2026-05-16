@@ -1,10 +1,43 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <meta charset="UTF-8" />
   <link rel="icon" type="image/png" href="/src/assets/logo.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!--
+    Restringe las fuentes permitidas de scripts, estilos, fuentes e imágenes
+    para mitigar ataques XSS e inyección de contenido malicioso.
+    Fuentes explícitamente declaradas = solo CDNs usados por la aplicación.
+  -->
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    script-src 'self' 'unsafe-inline' cdn.jsdelivr.net;
+    style-src 'self' 'unsafe-inline'
+      cdn-uicons.flaticon.com
+      cdn.jsdelivr.net
+      fonts.googleapis.com
+      cdnjs.cloudflare.com;
+    font-src 'self'
+      fonts.gstatic.com
+      cdn.jsdelivr.net
+      cdnjs.cloudflare.com
+      cdn-uicons.flaticon.com
+      data:;
+    img-src 'self' data: blob: https:;
+    connect-src 'self' ws: wss:;
+    frame-ancestors 'none';
+    object-src 'none';
+    base-uri 'self';
+  ">
+
+  <!-- Previene que el navegador infiera el tipo MIME incorrecto (MIME sniffing) -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+
+  <!-- Controla la información del referrer enviada en navegación externa -->
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
   <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css">
   <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css">
   <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-regular-stroke/css/uicons-regular-stroke.css">

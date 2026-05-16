@@ -54,7 +54,6 @@ export default function Marketplace() {
         <HamburgerMenu open={menuOpen} onClose={() => setMenuOpen(false)} />
 
         <main className="w-full max-w-md lg:max-w-6xl mx-auto px-4 lg:px-8 pt-4 lg:pt-6 pb-6 flex-1">
-          <div className={menuOpen ? "hidden lg:block" : "block"}>
             <div className="bg-white rounded-2xl shadow-sm border border-[#E0E5EB] px-5 py-4 flex items-center justify-between mb-4 lg:mb-6">
               <div>
                 <div className="text-[#666] text-base" style={{ fontSize: 16 }}>
@@ -136,7 +135,6 @@ export default function Marketplace() {
                 </div>
               ))}
             </div>
-          </div>
         </main>
       </div>
     </div>

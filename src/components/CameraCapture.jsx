@@ -4,8 +4,6 @@ export default function CameraCapture({ onCapture, onCancel, cameraError, setCam
     const videoRef = useRef(null);
     const canvasRef = useRef(null);
     const streamRef = useRef(null);
-
-    // Activar cámara cuando se monta el componente
     useEffect(() => {
         startCamera();
         return () => stopCamera();
@@ -58,8 +56,6 @@ export default function CameraCapture({ onCapture, onCancel, cameraError, setCam
                         Apunta tu cámara al residuo que vas a reciclar para validar la acción.
                     </p>
                 </div>
-
-                {/* Video en vivo */}
                 {cameraError ? (
                     <div className="rounded-2xl border border-red-300 bg-red-50 p-4 mb-4 text-center">
                         <p className="text-red-700 font-semibold">{cameraError}</p>
@@ -75,10 +71,8 @@ export default function CameraCapture({ onCapture, onCancel, cameraError, setCam
                     </div>
                 )}
 
-                {/* Canvas oculto para captura */}
                 <canvas ref={canvasRef} style={{ display: "none" }} />
 
-                {/* Botones */}
                 <div className="flex gap-3">
                     <button
                         onClick={() => {

@@ -21,7 +21,7 @@ export default function HamburgerMenu({ open, onClose }) {
     }, [open, onClose]);
 
     return (
-        <div className={`fixed inset-0 z-40 ${open ? "" : "pointer-events-none"}`}>
+        <div className={`fixed inset-0 z-[3000] ${open ? "" : "pointer-events-none"}`}>
             <div
                 className={`absolute inset-0 bg-black/30 transition-opacity duration-300 ${open ? "opacity-100" : "opacity-0"}`}
                 onClick={onClose}
@@ -29,7 +29,7 @@ export default function HamburgerMenu({ open, onClose }) {
 
             <aside
                 ref={ref}
-                className={`absolute top-0 left-0 h-full bg-white w-[78vw] max-w-sm shadow-2xl p-6 z-50 flex flex-col gap-6 transition-transform duration-300 ${open ? "translate-x-0" : "-translate-x-full"} rounded-r-2xl`}
+                className={`absolute top-0 left-0 h-full bg-white w-[78vw] max-w-sm shadow-2xl p-6 z-[3001] flex flex-col gap-6 transition-transform duration-300 ${open ? "translate-x-0" : "-translate-x-full"} rounded-r-2xl`}
                 aria-label="Menú principal"
                 role="dialog"
                 aria-modal={open}

@@ -1,5 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { validateEmail, validatePassword, validateName, sanitizeInput, authStorage } from "../utils/security";
 
 const HojaIcon = ({ className, style }) => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={className} style={style}>
@@ -12,10 +13,47 @@ export default function Register() {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
   const [pass2, setPass2] = useState("");
+  const [errors, setErrors] = useState({});
   const navigate = useNavigate();
 
   function handleSubmit(e) {
     e.preventDefault();
+    const newErrors = {};
+
+    const cleanNombre = sanitizeInput(nombre.trim());
+    if (!cleanNombre) {
+      newErrors.nombre = "El nombre es obligatorio.";
+    } else if (!validateName(nombre)) {
+      newErrors.nombre = "Solo letras y espacios, mínimo 2 caracteres.";
+    }
+
+    const cleanEmail = sanitizeInput(email.trim());
+    if (!cleanEmail) {
+      newErrors.email = "El correo es obligatorio.";
+    } else if (!validateEmail(cleanEmail)) {
+      newErrors.email = "Ingresa un correo electrónico válido.";
+    }
+
+    const passErrors = validatePassword(pass);
+    if (pass === "") {
+      newErrors.pass = "La contraseña es obligatoria.";
+    } else if (passErrors.length > 0) {
+      newErrors.pass = passErrors.join(", ") + ".";
+    }
+
+    if (!pass2) {
+      newErrors.pass2 = "Confirma tu contraseña.";
+    } else if (pass !== pass2) {
+      newErrors.pass2 = "Las contraseñas no coinciden.";
+    }
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
+
+    setErrors({});
+    authStorage.setSession("mock-jwt-token", { nombre: cleanNombre, email: cleanEmail });
     navigate("/dashboard");
   }
 
@@ -70,46 +108,66 @@ export default function Register() {
           Nombre completo
         </label>
         <input
-          className="w-full mb-4 px-4 py-2 border border-[#E0E5EB] rounded-lg bg-[#F9FAFB] focus:outline-none focus:ring-2 focus:ring-green-400 text-base placeholder-[#ADB5BD]"
+          className={`w-full px-4 py-2 border rounded-lg bg-[#F9FAFB] focus:outline-none focus:ring-2 focus:ring-green-400 text-base placeholder-[#ADB5BD] ${errors.nombre ? "border-red-400 mb-1" : "border-[#E0E5EB] mb-4"}`}
           id="nombre"
           type="text"
           placeholder="Tu nombre completo"
           value={nombre}
           onChange={e => setNombre(e.target.value)}
+          aria-describedby={errors.nombre ? "nombre-error" : undefined}
+          aria-invalid={!!errors.nombre}
         />
+        {errors.nombre && (
+          <p id="nombre-error" role="alert" className="text-red-500 text-xs mb-3">{errors.nombre}</p>
+        )}
         <label className="block text-black text-sm mb-1" htmlFor="email">
           Correo electrónico
         </label>
         <input
-          className="w-full mb-4 px-4 py-2 border border-[#E0E5EB] rounded-lg bg-[#F9FAFB] focus:outline-none focus:ring-2 focus:ring-green-400 text-base placeholder-[#ADB5BD]"
+          className={`w-full px-4 py-2 border rounded-lg bg-[#F9FAFB] focus:outline-none focus:ring-2 focus:ring-green-400 text-base placeholder-[#ADB5BD] ${errors.email ? "border-red-400 mb-1" : "border-[#E0E5EB] mb-4"}`}
           id="email"
           type="email"
           placeholder="tu@email.com"
           value={email}
           onChange={e => setEmail(e.target.value)}
+          aria-describedby={errors.email ? "email-error" : undefined}
+          aria-invalid={!!errors.email}
         />
+        {errors.email && (
+          <p id="email-error" role="alert" className="text-red-500 text-xs mb-3">{errors.email}</p>
+        )}
         <label className="block text-black text-sm mb-1" htmlFor="password">
           Contraseña
         </label>
         <input
-          className="w-full mb-4 px-4 py-2 border border-[#E0E5EB] rounded-lg bg-[#F9FAFB] focus:outline-none focus:ring-2 focus:ring-green-400 text-base"
+          className={`w-full px-4 py-2 border rounded-lg bg-[#F9FAFB] focus:outline-none focus:ring-2 focus:ring-green-400 text-base ${errors.pass ? "border-red-400 mb-1" : "border-[#E0E5EB] mb-4"}`}
           id="password"
           type="password"
           placeholder="••••••••"
           value={pass}
           onChange={e => setPass(e.target.value)}
+          aria-describedby={errors.pass ? "pass-error" : undefined}
+          aria-invalid={!!errors.pass}
         />
+        {errors.pass && (
+          <p id="pass-error" role="alert" className="text-red-500 text-xs mb-3">{errors.pass}</p>
+        )}
         <label className="block text-black text-sm mb-1" htmlFor="password2">
           Confirmar contraseña
         </label>
         <input
-          className="w-full mb-6 px-4 py-2 border border-[#E0E5EB] rounded-lg bg-[#F9FAFB] focus:outline-none focus:ring-2 focus:ring-green-400 text-base"
+          className={`w-full px-4 py-2 border rounded-lg bg-[#F9FAFB] focus:outline-none focus:ring-2 focus:ring-green-400 text-base ${errors.pass2 ? "border-red-400 mb-1" : "border-[#E0E5EB] mb-6"}`}
           id="password2"
           type="password"
           placeholder="••••••••"
           value={pass2}
           onChange={e => setPass2(e.target.value)}
+          aria-describedby={errors.pass2 ? "pass2-error" : undefined}
+          aria-invalid={!!errors.pass2}
         />
+        {errors.pass2 && (
+          <p id="pass2-error" role="alert" className="text-red-500 text-xs mb-4">{errors.pass2}</p>
+        )}
         <button
           type="submit"
           className="w-full h-11 bg-green-600 text-white font-semibold rounded-lg transition hover:bg-green-700 mb-2"

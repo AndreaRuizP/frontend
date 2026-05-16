@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import DashboardHome from "./pages/DashboardHome";
 import Login from "./auth/Login";
 import Registre from "./auth/Register";
+import ProtectedRoute from "./auth/ProtectedRoute";
 import Footer from "./components/Footer";
 import Map from "./pages/Map";
 import Challenge from "./pages/Challenge";
@@ -23,13 +24,13 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Registre />} />
-        <Route path="/dashboard" element={<DashboardHome />} />
-        <Route path="/map" element={<Map />} />
-        <Route path="/retos" element={<Challenge />}></Route>
-        <Route path="/marketplace" element={<Marketplace />}></Route>
-        <Route path="/scan" element={<ScanQR />}></Route>
-        <Route path="/capture-photo" element={<CapturePhoto />} />
-        <Route path="/profile" element={<Profile />}></Route>
+        <Route path="/dashboard" element={<ProtectedRoute><DashboardHome /></ProtectedRoute>} />
+        <Route path="/map" element={<ProtectedRoute><Map /></ProtectedRoute>} />
+        <Route path="/retos" element={<ProtectedRoute><Challenge /></ProtectedRoute>} />
+        <Route path="/marketplace" element={<ProtectedRoute><Marketplace /></ProtectedRoute>} />
+        <Route path="/scan" element={<ProtectedRoute><ScanQR /></ProtectedRoute>} />
+        <Route path="/capture-photo" element={<ProtectedRoute><CapturePhoto /></ProtectedRoute>} />
+        <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
       </Routes>
     </>
   );

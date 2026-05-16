@@ -1,5 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { validateEmail, sanitizeInput, authStorage } from "../utils/security";
 
 const HojaIcon = ({ className, style }) => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={className} style={style}>
@@ -10,10 +11,32 @@ const HojaIcon = ({ className, style }) => (
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errors, setErrors] = useState({});
   const navigate = useNavigate();
 
   function handleSubmit(e) {
     e.preventDefault();
+    const newErrors = {};
+
+    const cleanEmail = sanitizeInput(email.trim());
+    if (!cleanEmail) {
+      newErrors.email = "El correo es obligatorio.";
+    } else if (!validateEmail(cleanEmail)) {
+      newErrors.email = "Ingresa un correo electrónico válido.";
+    }
+
+    if (!password) {
+      newErrors.password = "La contraseña es obligatoria.";
+    }
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
+
+    setErrors({});
+    // Token simulado; en producción se reemplaza por la respuesta del servidor
+    authStorage.setSession("mock-jwt-token", { email: cleanEmail });
     navigate("/dashboard");
   }
 
@@ -68,26 +91,36 @@ export default function Login() {
           Correo electrónico
         </label>
         <input
-          className="w-full mb-4 px-4 py-2 border border-[#E0E5EB] rounded-lg bg-[#F9FAFB] focus:outline-none focus:ring-2 focus:ring-green-400 text-base placeholder-[#ADB5BD]"
+          className={`w-full px-4 py-2 border rounded-lg bg-[#F9FAFB] focus:outline-none focus:ring-2 focus:ring-green-400 text-base placeholder-[#ADB5BD] ${errors.email ? "border-red-400 mb-1" : "border-[#E0E5EB] mb-4"}`}
           id="email"
           type="email"
           autoComplete="username"
           placeholder="tu@email.com"
           value={email}
           onChange={e => setEmail(e.target.value)}
+          aria-describedby={errors.email ? "email-error" : undefined}
+          aria-invalid={!!errors.email}
         />
+        {errors.email && (
+          <p id="email-error" role="alert" className="text-red-500 text-xs mb-3">{errors.email}</p>
+        )}
         <label className="block text-black text-sm mb-1" htmlFor="password">
           Contraseña
         </label>
         <input
-          className="w-full mb-6 px-4 py-2 border border-[#E0E5EB] rounded-lg bg-[#F9FAFB] focus:outline-none focus:ring-2 focus:ring-green-400 text-base"
+          className={`w-full px-4 py-2 border rounded-lg bg-[#F9FAFB] focus:outline-none focus:ring-2 focus:ring-green-400 text-base ${errors.password ? "border-red-400 mb-1" : "border-[#E0E5EB] mb-6"}`}
           id="password"
           type="password"
           autoComplete="current-password"
           placeholder="••••••••"
           value={password}
           onChange={e => setPassword(e.target.value)}
+          aria-describedby={errors.password ? "password-error" : undefined}
+          aria-invalid={!!errors.password}
         />
+        {errors.password && (
+          <p id="password-error" role="alert" className="text-red-500 text-xs mb-4">{errors.password}</p>
+        )}
         <button
           type="submit"
           className="w-full h-11 bg-green-600 text-white font-semibold rounded-lg transition hover:bg-green-700 mb-2"

@@ -64,8 +64,6 @@ export default function Challenge() {
         <HamburgerMenu open={menuOpen} onClose={() => setMenuOpen(false)} />
 
         <main className="w-full max-w-md lg:max-w-6xl mx-auto px-4 lg:px-8 pt-4 lg:pt-6 pb-6 flex-1">
-          <div className={menuOpen ? "hidden lg:block" : "block"}>
-
             <div className="bg-white rounded-2xl border border-[#E0E5EB] px-5 py-3 mb-4 lg:mb-6">
               <span className="font-semibold text-[#141B21]" style={{ fontSize: 15 }}>
                 Nivel 3: Reciclador Activo
@@ -155,7 +153,6 @@ export default function Challenge() {
                 );
               })}
             </div>
-          </div>
         </main>
       </div>
     </div>

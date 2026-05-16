@@ -16,8 +16,6 @@ export default function ScanQR() {
         
         setQrResult(qrValue);
         setShowScanner(false);
-        
-        // Redirige al módulo de foto con delay
         setTimeout(() => {
             navigate(`/capture-photo?qr=${encodeURIComponent(qrValue)}`);
         }, 1000);

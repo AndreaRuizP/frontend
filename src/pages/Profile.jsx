@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import UserHeader from "../components/UserHeader";
 import HamburgerMenu from "../components/HamburgerMenu";
 import Sidebar from "../components/Sidebar";
+import { authStorage } from "../utils/security";
 
 const history = [
   { icon: "fi fi-rr-recycle", label: "Botella plástica validada", time: "Hace 2 horas", points: "+10" },
@@ -39,8 +40,7 @@ export default function Profile() {
   }
 
   function handleLogout() {
-    localStorage.removeItem("user");
-    localStorage.removeItem("token");
+    authStorage.clear();
     navigate("/login");
   }
 
