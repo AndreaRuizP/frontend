@@ -13,6 +13,7 @@ import DarkMode from "./components/DarkMode";
 import ScanQR from "./pages/ScanQR";
 import Profile from "./pages/Profile";
 import CapturePhoto from "./pages/CapturePhoto";
+import AdminDashboard from "./pages/AdminDashboard";
 
 function App() {
   const location = useLocation();
@@ -31,6 +32,7 @@ function App() {
         <Route path="/scan" element={<ProtectedRoute><ScanQR /></ProtectedRoute>} />
         <Route path="/capture-photo" element={<ProtectedRoute><CapturePhoto /></ProtectedRoute>} />
         <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
+        <Route path="/admin" element={<ProtectedRoute><AdminDashboard /></ProtectedRoute>} />
       </Routes>
     </>
   );
