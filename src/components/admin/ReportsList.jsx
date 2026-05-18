@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { sanitizeInput } from "../../utils/security";
 
 export default function ReportsList() {
     const [searchTerm, setSearchTerm] = useState("");
@@ -114,7 +115,8 @@ export default function ReportsList() {
                     type="text"
                     placeholder="Buscar reporte por título o usuario..."
                     value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
+                    onChange={(e) => setSearchTerm(sanitizeInput(e.target.value))}
+                    maxLength={100}
                     className="w-full pl-12 pr-4 py-3 border border-[#E0E5EB] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#199A61] focus:border-transparent"
                 />
             </div>

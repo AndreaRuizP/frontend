@@ -1,16 +1,16 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import AdminStats from "../components/Admin/AdminStats";
-import UsersList from "../components/Admin/UsersList";
-import ReportsList from "../components/Admin/ReportsList";
+import AdminStats from "../components/admin/AdminStats";
+import UsersList from "../components/admin/UsersList";
+import ReportsList from "../components/admin/ReportsList";
+import { authStorage } from "../utils/security";
 
 export default function AdminDashboard() {
     const [activeTab, setActiveTab] = useState("overview");
     const navigate = useNavigate();
 
     const handleLogout = () => {
-        console.log("Cerrando sesión...");
-        localStorage.clear();
+        authStorage.clear();
         navigate("/login");
     };
 

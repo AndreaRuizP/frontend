@@ -5,6 +5,8 @@ import DashboardHome from "./pages/DashboardHome";
 import Login from "./auth/Login";
 import Registre from "./auth/Register";
 import ProtectedRoute from "./auth/ProtectedRoute";
+import AdminRoute from "./auth/AdminRoute";
+import AdminDashboard from "./pages/AdminDashboard";
 import Footer from "./components/Footer";
 import Map from "./pages/Map";
 import Challenge from "./pages/Challenge";
@@ -13,7 +15,6 @@ import DarkMode from "./components/DarkMode";
 import ScanQR from "./pages/ScanQR";
 import Profile from "./pages/Profile";
 import CapturePhoto from "./pages/CapturePhoto";
-import AdminDashboard from "./pages/AdminDashboard";
 
 function App() {
   const location = useLocation();
@@ -32,7 +33,7 @@ function App() {
         <Route path="/scan" element={<ProtectedRoute><ScanQR /></ProtectedRoute>} />
         <Route path="/capture-photo" element={<ProtectedRoute><CapturePhoto /></ProtectedRoute>} />
         <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
-        <Route path="/admin" element={<ProtectedRoute><AdminDashboard /></ProtectedRoute>} />
+        <Route path="/admin" element={<AdminRoute><AdminDashboard /></AdminRoute>} />
       </Routes>
     </>
   );

@@ -35,9 +35,10 @@ export default function Login() {
     }
 
     setErrors({});
-    // Token simulado; en producción se reemplaza por la respuesta del servidor
-    authStorage.setSession("mock-jwt-token", { email: cleanEmail });
-    navigate("/dashboard");
+    // En producción el rol llega desde el servidor; aquí se simula por email
+    const role = cleanEmail === "admin@cleanpoints.com" ? "admin" : "user";
+    authStorage.setSession("mock-jwt-token", { email: cleanEmail, role });
+    navigate(role === "admin" ? "/admin" : "/dashboard");
   }
 
   return (
